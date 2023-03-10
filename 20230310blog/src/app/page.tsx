@@ -1,7 +1,11 @@
+import Header from "components/Header/Header";
+import HomeFeed from "components/HomeFeed/HomeFeed";
+
 export default function Home() {
   return (
     <>
-      <p>안녕하세요</p>
+      <Header />
+      <HomeFeed />
     </>
   );
 }

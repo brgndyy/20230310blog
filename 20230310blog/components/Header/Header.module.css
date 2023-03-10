@@ -1,0 +1,11 @@
+.header_title{
+    color: rgb(73, 56, 168);
+    margin: 0;
+}
+
+.header_container{
+    width: 100vw;
+    background-color: black;
+    height: 100px;
+
+}
