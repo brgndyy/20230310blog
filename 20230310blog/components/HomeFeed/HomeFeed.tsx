@@ -7,11 +7,11 @@ export default function HomeFeed() {
     <div className={classes.homeFeed_card}>
       <div className={classes.homeFeed_1_container}>
         <div className={classes.item_container}>
-          <Link href={"/exhibiton"}>
+          <Link href={"/music"}>
             <Image
               className={classes.category_img}
-              src={"/image/exhibition.png"}
-              alt={"exhibiton"}
+              src={"/image/music.jpeg"}
+              alt={"music"}
               width={300}
               height={300}
             />
@@ -48,8 +48,8 @@ export default function HomeFeed() {
             <Link href={"/exhibiton"}>
               <Image
                 className={classes.category_img}
-                src={"/image/city.jpeg"}
-                alt={"itemImage"}
+                src={"/image/exhibition.jpeg"}
+                alt={"exhibiton"}
                 width={300}
                 height={300}
               />
@@ -58,11 +58,11 @@ export default function HomeFeed() {
         </div>
         <div className={classes.item_container}>
           <div className={classes.category_item}>
-            <Link href={"/exhibiton"}>
+            <Link href={"/etc"}>
               <Image
                 className={classes.category_img}
-                src={"/image/exhibition.png"}
-                alt={"itemImage"}
+                src={"/image/etc.png"}
+                alt={"etc"}
                 width={300}
                 height={300}
               />
