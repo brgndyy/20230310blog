@@ -1,13 +1,15 @@
-.header_title{
-    color: rgb(73, 56, 168);
-    margin: 0;
-}
 
 .header_container{
-    width: 100vw;
-    background-color: black;
+    width: 80%;
+    background-color: #5e0a0a;
     height: 100px;
+    border-bottom: 0.7px solid #fff;
+    z-index: 2;
     position: fixed;
     top: 0;
-    left :0;
+}
+
+.header_title{
+    color: #fff;
+    margin: 0;
 }

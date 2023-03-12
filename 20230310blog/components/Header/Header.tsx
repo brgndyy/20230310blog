@@ -6,7 +6,7 @@ export default function Header() {
     <>
       <header className={classes.header_container}>
         <Link href={"/"}>
-          <h1 className={classes.header_title}>헤더입니다.</h1>
+          <h1 className={classes.header_title}>BRGNDY</h1>
         </Link>
       </header>
     </>
