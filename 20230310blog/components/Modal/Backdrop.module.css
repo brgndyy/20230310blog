@@ -1,0 +1,26 @@
+.back_drop_show {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    animation: show;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+
+
+
+  @keyframes show {
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+

@@ -1,0 +1,18 @@
+
+.modal_container{
+    height: 100vh;
+    width:400px;
+    background-color: aqua;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-out;
+}
+
+.modal_container.show{
+    transform: translateX(0);
+    
+}
+

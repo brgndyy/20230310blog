@@ -1,5 +1,6 @@
 import Link from "next/link";
 import classes from "./Header.module.css";
+import HeaderMenu from "components/HeaderMenu/HeaderMenu";
 
 export default function Header() {
   return (
@@ -15,13 +16,7 @@ export default function Header() {
               />
             </Link>
           </div>
-          <div className={classes.header_menu_container}>
-            <div className={classes.header_menu_button}>
-              <span className={classes.header_menu_bar}></span>
-              <span className={classes.header_menu_bar}></span>
-              <span className={classes.header_menu_bar}></span>
-            </div>
-          </div>
+          <HeaderMenu />
         </div>
       </header>
     </>

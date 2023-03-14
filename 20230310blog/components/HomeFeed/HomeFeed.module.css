@@ -99,7 +99,7 @@
     }
 
     .homeFeed_card{
-        padding-top: 900px;
+        padding-top: 1000px;
         padding-bottom: 50px;
         overflow: scroll;
     }
@@ -117,12 +117,31 @@
     }
 
     .homeFeed_card{
-        padding-top: 800px;
+        padding-top: 1000px;
         padding-bottom: 50px;
         overflow: scroll;
     }
 }
 
+
+@media (max-width : 900px){
+    .homeFeed_1_container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .homeFeed_2_container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto;
+        margin-top: 40px;
+    }
+
+    .homeFeed_card{
+        padding-top: 1000px;
+        padding-bottom: 50px;
+        overflow: scroll;
+    }
+}
 @media (max-width : 850px){
     .homeFeed_1_container{
         grid-template-columns: repeat(1, 1fr);
@@ -136,7 +155,26 @@
     }
 
     .homeFeed_card{
-        padding-top: 900px;
+        padding-top: 1000px;
+        padding-bottom: 50px;
+        overflow: scroll;
+    }
+}
+
+@media (max-width : 800px){
+    .homeFeed_1_container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .homeFeed_2_container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto;
+        margin-top: 40px;
+    }
+
+    .homeFeed_card{
+        padding-top: 1000px;
         padding-bottom: 50px;
         overflow: scroll;
     }
@@ -174,7 +212,26 @@
     }
 
     .homeFeed_card{
-        padding-top: 900px;
+        padding-top: 1000px;
+        padding-bottom: 50px;
+        overflow: scroll;
+    }
+}
+
+@media (max-width : 500px){
+    .homeFeed_1_container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .homeFeed_2_container{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto;
+        margin-top: 40px;
+    }
+
+    .homeFeed_card{
+        padding-top: 1000px;
         padding-bottom: 50px;
         overflow: scroll;
     }
@@ -193,7 +250,7 @@
     }
 
     .homeFeed_card{
-        padding-top: 550px;
+        padding-top: 850px;
         padding-bottom: 50px;
         overflow: scroll;
     }

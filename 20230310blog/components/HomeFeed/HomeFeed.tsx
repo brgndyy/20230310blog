@@ -14,6 +14,7 @@ export default function HomeFeed() {
               alt={"music"}
               width={300}
               height={300}
+              priority
             />
             <div className={classes.item_info}>
               <div>
@@ -30,6 +31,7 @@ export default function HomeFeed() {
               alt={"movie"}
               width={300}
               height={300}
+              priority
             />
             <div className={classes.item_info}>
               <div>
@@ -47,6 +49,7 @@ export default function HomeFeed() {
                 alt={"book"}
                 width={300}
                 height={300}
+                priority
               />
               <div className={classes.item_info}>
                 <div>
@@ -67,6 +70,7 @@ export default function HomeFeed() {
                 alt={"exhibiton"}
                 width={300}
                 height={300}
+                priority
               />
               <div className={classes.item_info}>
                 <div>
@@ -85,6 +89,7 @@ export default function HomeFeed() {
                 alt={"etc"}
                 width={300}
                 height={300}
+                priority
               />
               <div className={classes.item_info}>
                 <div>
