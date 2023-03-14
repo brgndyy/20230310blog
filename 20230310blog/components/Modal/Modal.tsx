@@ -8,16 +8,14 @@ type Props = {
 };
 
 export default function Modal({ modal, onClose }: Props) {
-  console.log(modal);
+  console.log("Modal의 현재 modal 상태는 : ", modal);
   return (
     <>
-      {modal && (
-        <nav className={`${classes.modal_container} ${modal && classes.show}`}>
-          <div className={classes.modal_list_container}>
-            <ul></ul>
-          </div>
-        </nav>
-      )}
+      <nav className={`${classes.modal_container} ${modal && classes.show}`}>
+        <div className={classes.modal_list_container}>
+          <ul></ul>
+        </div>
+      </nav>
     </>
   );
 }
