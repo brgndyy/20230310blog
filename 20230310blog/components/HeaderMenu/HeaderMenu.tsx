@@ -1,6 +1,6 @@
 "use client";
 import classes from "./HeaderMenu.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Modal from "components/Modal/Modal";
 import Backdrop from "../Modal/Backdrop";
@@ -11,10 +11,13 @@ export default function HeaderMenu() {
   const modalIsOpen = () => {
     setModal(true);
   };
-
   const modalIsClosed = () => {
     setModal(false);
   };
+
+  useEffect(() => {
+    console.log("modal의 상태가 변경되었습니다. 현재의 modal 상태는 : ", modal);
+  }, [modal]);
 
   return (
     <>
