@@ -15,6 +15,11 @@ export default function HomeFeed() {
               width={300}
               height={300}
             />
+            <div className={classes.item_info}>
+              <div>
+                <h3>음악</h3>
+              </div>
+            </div>
           </Link>
         </div>
         <div className={classes.item_container}>
@@ -26,6 +31,11 @@ export default function HomeFeed() {
               width={300}
               height={300}
             />
+            <div className={classes.item_info}>
+              <div>
+                <h3>영화</h3>
+              </div>
+            </div>
           </Link>
         </div>
         <div className={classes.item_container}>
@@ -38,6 +48,11 @@ export default function HomeFeed() {
                 width={300}
                 height={300}
               />
+              <div className={classes.item_info}>
+                <div>
+                  <h3>책</h3>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
@@ -53,6 +68,11 @@ export default function HomeFeed() {
                 width={300}
                 height={300}
               />
+              <div className={classes.item_info}>
+                <div>
+                  <h3>전시</h3>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
@@ -66,6 +86,11 @@ export default function HomeFeed() {
                 width={300}
                 height={300}
               />
+              <div className={classes.item_info}>
+                <div>
+                  <h3>기타</h3>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
