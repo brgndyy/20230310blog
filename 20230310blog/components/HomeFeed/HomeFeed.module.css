@@ -67,23 +67,6 @@
   }
 
 
-@media (min-height : 1000px){
-    .homeFeed_1_container{
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto auto;
-    }
-
-    .homeFeed_2_container{
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto auto;
-        margin-top: 40px;
-    }
-
-    .homeFeed_card{
-        padding-bottom: 250px;
-        overflow: scroll;
-    }
-}
 
 
 @media (max-width : 1200px){

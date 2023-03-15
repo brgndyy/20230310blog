@@ -1,17 +1,17 @@
 "use client";
 import classes from "./HeaderMenu.module.css";
 import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import Modal from "components/Modal/Modal";
-import Backdrop from "../Modal/Backdrop";
+import { Backdrop } from "components/Modal/Backdrop";
 
 export default function HeaderMenu() {
   const [modal, setModal] = useState(false);
 
-  const modalIsOpen = () => {
+  const modalOpen = () => {
     setModal(true);
   };
-  const modalIsClosed = () => {
+
+  const modalClose = () => {
     setModal(false);
   };
 
@@ -21,22 +21,16 @@ export default function HeaderMenu() {
 
   return (
     <>
-      <div className={classes.header_menu_container} onClick={modalIsOpen}>
+      <div className={classes.header_menu_container} onClick={modalOpen}>
         <div className={classes.header_menu_button}>
           <span className={classes.header_menu_bar}></span>
           <span className={classes.header_menu_bar}></span>
           <span className={classes.header_menu_bar}></span>
         </div>
       </div>
-      {modal &&
-        createPortal(
-          <>
-            <Backdrop onClose={modalIsClosed} modal={modal}>
-              <Modal modal={modal} onClose={modalIsClosed} />
-            </Backdrop>
-          </>,
-          document.getElementById("modal_portal") as HTMLDivElement
-        )}
+
+      <Backdrop modalClose={modalClose} modal={modal} />
+      <Modal modalClose={modalClose} modal={modal} />
     </>
   );
 }

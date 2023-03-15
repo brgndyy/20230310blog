@@ -1,19 +1,30 @@
+import { useRef, useEffect, useState, ReactNode } from "react";
+import { createPortal } from "react-dom";
 import classes from "./Backdrop.module.css";
-import { useEffect } from "react";
 
-type Props = {
-  children: React.ReactNode;
-  onClose: () => void;
+interface PortalProps {
+  modalClose: () => void;
   modal: boolean;
-};
-
-export default function Backdrop({ modal, children, onClose }: Props) {
-  console.log("backdrop의 현재 modal 상태는 : ", modal);
-  return (
-    <>
-      <div onClick={onClose} className={`${classes.back_drop_show}`}>
-        {children}
-      </div>
-    </>
-  );
 }
+
+export const Backdrop = ({ modalClose, modal }: PortalProps) => {
+  const ref = useRef<Element | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    ref.current = document.querySelector<HTMLElement>("#modal_backdrop");
+    setMounted(true);
+  }, []);
+
+  return mounted && ref.current
+    ? createPortal(
+        <div
+          className={`${classes.overlay} ${
+            modal ? classes.show : classes.hide
+          }`}
+          onClick={modalClose}
+        ></div>,
+        ref.current
+      )
+    : null;
+};

@@ -1,25 +1,23 @@
-.back_drop_show {
+.overlay {
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     z-index: 10;
-    animation: show;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-  }
+    transition: all 0.3s ease;
+}
 
 
+.overlay.show { 
+    opacity: 1;
+    visibility: visible;
+}
 
-  @keyframes show {
-    from{
-      opacity: 0;
-    }
-    to{
-      opacity: 1;
-    }
-  }
 
+.overlay.hide{
+    opacity: 0;
+    visibility: hidden;
+}

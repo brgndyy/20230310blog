@@ -1,4 +1,3 @@
-"use client";
 import classes from "./Card.module.css";
 
 type Props = {

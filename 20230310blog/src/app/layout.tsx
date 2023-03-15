@@ -15,7 +15,8 @@ export default function RootLayout({
       <head />
 
       <body>
-        <div id="modal_portal"></div>
+        <div id="modal_backdrop"></div>
+        <div id="modal"></div>
         {children}
       </body>
     </html>
