@@ -15,10 +15,6 @@ export default function HeaderMenu() {
     setModal(false);
   };
 
-  useEffect(() => {
-    console.log("modal의 상태가 변경되었습니다. 현재의 modal 상태는 : ", modal);
-  }, [modal]);
-
   return (
     <>
       <div className={classes.header_menu_container} onClick={modalOpen}>
