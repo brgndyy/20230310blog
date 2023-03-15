@@ -1,11 +1,22 @@
+.post_list_card{
+    width : 100%;
+    height: 100%;
+
+}
+
 .post_list_container{
     width : 100%;
     height: 100%;
-    
+    padding-top: 250px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 40px;
+
 }
 
 .post_list_ul{
     padding-left: 0;
     width: 100%;
     height : 100%;
+    list-style: none;
 }

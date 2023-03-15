@@ -1,9 +1,12 @@
-export const dummyMusicData = [
+import { Music } from "types/MusicType";
+
+export const dummyMusicData: Music[] = [
   {
     id: 1,
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "The Great Album I've ever heard of! ",
     review:
@@ -16,6 +19,7 @@ export const dummyMusicData = [
     category: "music",
     title: "blueblue",
     artist: "Sam Gendel",
+    released: "1984-01-01",
     rate: 3.5,
     summary: "Jazzing is good",
     review:
@@ -28,6 +32,7 @@ export const dummyMusicData = [
     category: "music",
     title: "You're Dead!",
     artist: "Flying Lotus",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review:
@@ -40,6 +45,7 @@ export const dummyMusicData = [
     category: "music",
     title: "The Anecdote",
     artist: "이센스",
+    released: "1984-01-01",
     rate: 4.5,
     summary: "gdogodogdogodogdogodgodogdo",
     review:
@@ -49,11 +55,13 @@ export const dummyMusicData = [
   {
     id: 5,
     category: "music",
-    title: "Late Late Summer",
-    artist: "Bread & Butter",
+    title: "Zissou",
+    artist: "화지",
+    released: "2016-07-01",
     rate: 4,
-    summary: "I'm Dead!",
-    review: "The Great Album I've ever heard of! ",
+    summary: "Let'ssssssssdascxzccas",
+    review:
+      " and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not ondummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not ondummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not ondummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not ondummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not ondummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not ondummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a ",
     image:
       "https://i.discogs.com/ftWfXN5OThRP8E3lSwr03uY9XCZR1WU1TjX5AJzsXpA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzUz/OTY5LTE0OTU4NjU5/MTAtNDU5MC5qcGVn.jpeg",
   },
@@ -62,6 +70,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -73,6 +82,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -84,6 +94,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -95,7 +106,9 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
+    summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
     image:
       "https://i.discogs.com/ftWfXN5OThRP8E3lSwr03uY9XCZR1WU1TjX5AJzsXpA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzUz/OTY5LTE0OTU4NjU5/MTAtNDU5MC5qcGVn.jpeg",
@@ -105,6 +118,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -116,6 +130,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -127,6 +142,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -138,6 +154,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
@@ -149,7 +166,9 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
+    summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
     image:
       "https://i.discogs.com/ftWfXN5OThRP8E3lSwr03uY9XCZR1WU1TjX5AJzsXpA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzUz/OTY5LTE0OTU4NjU5/MTAtNDU5MC5qcGVn.jpeg",
@@ -159,6 +178,7 @@ export const dummyMusicData = [
     category: "music",
     title: "Late Late Summer",
     artist: "Bread & Butter",
+    released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
     review: "The Great Album I've ever heard of! ",
