@@ -10,7 +10,7 @@ export default function Page() {
     <>
       <Card>
         <Header />
-        <PostList dummyMusicData={dummyMusicData} />
+        <PostList contentList={dummyMusicData} />
       </Card>
     </>
   );
