@@ -1,5 +1,3 @@
-import { ContentType } from "types/ContentType";
-
 export const dummyMusicData = [
   {
     id: 1,
