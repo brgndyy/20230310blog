@@ -14,6 +14,9 @@ const nextConfig = {
       "i.guim.co.uk",
       "media.pitchfork.com",
       "cdns-images.dzcdn.net",
+      "www.artinsight.co.kr",
+      "blog.lgchem.com",
+      "th4.tmon.kr",
     ],
   },
 };
