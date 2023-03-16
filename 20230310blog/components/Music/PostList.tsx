@@ -1,31 +1,19 @@
 import classes from "./PostList.module.css";
 import PostItem from "./PostItem";
-import { Music } from "types/MusicType";
+import { ContentType } from "types/ContentType";
 
-type MusicType = {
-  dummyMusicData: Music[];
+type PostListProps = {
+  contentList: ContentType[];
 };
 
-export default function PostList({ dummyMusicData }: MusicType) {
+export default function PostList({ contentList }: PostListProps) {
   return (
     <>
       <div className={classes.post_list_card}>
         <div className={classes.post_list_container}>
           <ul className={classes.post_list_ul}>
-            {dummyMusicData.map((item) => {
-              return (
-                <PostItem
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  artist={item.artist}
-                  released={item.released}
-                  rate={item.rate}
-                  summary={item.summary}
-                  review={item.review}
-                  imageUrl={item.image}
-                />
-              );
+            {contentList.map((item) => {
+              return <PostItem key={item.id} {...item} />;
             })}
           </ul>
         </div>
