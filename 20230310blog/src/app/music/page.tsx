@@ -1,5 +1,5 @@
 import Header from "components/Header/Header";
-import Card from "components/HomeCard/Card";
+import ContentCard from "components/ContentCard/ContentCard";
 import PostList from "components/Music/PostList";
 import { dummyMusicData } from "DUMMY_DATA/dummy_music_data";
 
@@ -8,10 +8,10 @@ export default function Page() {
 
   return (
     <>
-      <Card>
+      <ContentCard>
         <Header />
         <PostList contentList={dummyMusicData} />
-      </Card>
+      </ContentCard>
     </>
   );
 }
