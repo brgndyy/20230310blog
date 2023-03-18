@@ -11,7 +11,7 @@ export default function PostItem(props: PostItemProps) {
   return (
     <>
       <div className={classes.post_card}>
-        <Link href={"/:id"}>
+        <Link href={"/:id"} className={classes.post_link}>
           <li className={classes.post_li}>
             <div className={classes.post_img_card}>
               <Image
@@ -25,7 +25,7 @@ export default function PostItem(props: PostItemProps) {
             <div className={classes.post_info_card}>
               <div className={classes.post_info}>
                 <span>아티스트 : {rest.artist}</span>
-                <span>앨범명 : {rest.title}</span>
+                <span>앨범명 : {title}</span>
                 <span>평점 : {rest.rate}</span>
               </div>
             </div>
