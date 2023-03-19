@@ -53,8 +53,8 @@ export const dummyMusicData = [
   {
     id: 5,
     category: "music",
-    title: "Zissou",
-    artist: "화지",
+    title: "Talk Memory",
+    artist: "BAD BAD NOT GOOD",
     released: "2016-07-01",
     rate: 4,
     summary: "Let'ssssssssdascxzccas",
@@ -65,8 +65,8 @@ export const dummyMusicData = [
   {
     id: 6,
     category: "music",
-    title: "Talk Memory",
-    artist: "Bread & Butter",
+    title: "Zissou",
+    artist: "화지",
     released: "1984-01-01",
     rate: 4,
     summary: "I'm Dead!",
