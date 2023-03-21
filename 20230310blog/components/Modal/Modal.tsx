@@ -2,7 +2,7 @@
 import { createPortal } from "react-dom";
 import classes from "./Modal.module.css";
 import ModalList from "./ModalList";
-import { useRef, useState, useEffect, ReactNode } from "react";
+import { useRef, useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 type Props = {

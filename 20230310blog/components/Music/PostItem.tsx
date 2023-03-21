@@ -24,23 +24,22 @@ export default function PostItem(props: PostItemProps) {
             </div>
             <div className={classes.post_info_card}>
               <div className={classes.post_info}>
-                <div className={classes.artist}>
-                  <div>아티스트</div>
-
-                  <div className={classes.colon}> : </div>
-
-                  <div>{rest.artist}</div>
+                <div>
+                  <span>아티스트 : </span>
+                  <span>{rest.artist}</span>
                 </div>
-
-                <div className={classes.title}>
-                  <div>앨범명</div>
-                  <div className={classes.colon}>:</div>
-                  <div>{title}</div>
+                <div>
+                  <span>앨범 : </span>
+                  <span>{title}</span>
                 </div>
-
-                <span>
-                  평점 <span className={classes.colon}>:</span> {rest.rate}
-                </span>
+                <div>
+                  <span>평점 : </span>
+                  <span>{rest.rate}</span>
+                </div>
+                <div>
+                  <span>게시글 날짜 : </span>
+                  <span>{rest.postDate}</span>
+                </div>
               </div>
             </div>
           </li>

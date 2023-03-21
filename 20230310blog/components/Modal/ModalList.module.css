@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
 .category{
     list-style: none;
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     font-size: 24px;
     display: flex;
     justify-content: center;
