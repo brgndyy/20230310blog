@@ -8,7 +8,7 @@ import MoviePostItem from "components/Movie/MoviePostItem";
 type PostItemProps = ContentItem;
 
 export default function PostItem(props: PostItemProps) {
-  const { id, title, category, imageUrl, postDate, ...rest } = props;
+  const { category } = props;
 
   return (
     <>
