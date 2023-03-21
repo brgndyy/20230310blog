@@ -6,7 +6,7 @@ import { ContentType } from "types/ContentType";
 type PostItemProps = ContentType;
 
 export default function PostItem(props: PostItemProps) {
-  const { id, title, imageUrl, ...rest } = props;
+  const { id, title, imageUrl, postDate, ...rest } = props;
 
   return (
     <>
@@ -18,27 +18,36 @@ export default function PostItem(props: PostItemProps) {
                 className={classes.post_img}
                 src={imageUrl}
                 width={200}
-                height={200}
+                height={240}
                 alt={title}
               />
             </div>
             <div className={classes.post_info_card}>
               <div className={classes.post_info}>
-                <div>
-                  <span>아티스트 : </span>
+                <div className={classes.artist_div}>
+                  <span className={classes.artist_span}>
+                    &nbsp;&nbsp;&nbsp;&nbsp;아티스트
+                  </span>
+                  <span>&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;</span>
                   <span>{rest.artist}</span>
                 </div>
-                <div>
-                  <span>앨범 : </span>
+                <div className={classes.title_div}>
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;앨범 &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    &nbsp;&nbsp;&nbsp;
+                  </span>
                   <span>{title}</span>
                 </div>
-                <div>
-                  <span>평점 : </span>
+                <div className={classes.rate_div}>
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;평점
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
                   <span>{rest.rate}</span>
                 </div>
-                <div>
-                  <span>게시글 날짜 : </span>
-                  <span>{rest.postDate}</span>
+                <div className={classes.post_date}>
+                  <span>2022-01-01</span>
                 </div>
               </div>
             </div>

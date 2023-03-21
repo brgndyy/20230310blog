@@ -1,14 +1,17 @@
 .modal_container{
-  height: 100vh;
+  height: 100%;
   width: 420px;
   background: #4a0a0a;
   z-index: 20;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   transform: translateX(-100%);
   transition: all 0.7s ease-out;
   padding: 40px;
+  overflow: scroll;
+
 }
 
 .modal_container.show{
@@ -20,9 +23,12 @@
 
 
 
+
 .modal_ul{
+  
     padding-left: 0;
     height: 100%;
+    
 }
 
 .close_icon{
@@ -44,66 +50,17 @@
   opacity: 0.8;
   scale: 1.1;
 }
-@media (max-width : 420px){
-  .close_icon {
-    font-size: 35px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 30px;
-  }
-}
 
-@media (max-width : 400px){
-  .close_icon {
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 30px;
-  }
-}
 
-@media (max-width : 380px){
-  .close_icon {
-    font-size: 30px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 70px;
-  }
-}
-
-@media (max-width : 370px){
-  .close_icon {
-    font-size: 35px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 75px;
-  }
-}
-
-@media (max-width : 350px){
-  .close_icon {
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 60px;
-  }
-}
-
-@media (max-width : 330px){
-  .close_icon {
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 173px;
-  }
-}
 
 @media (max-width : 300px){
 
-  .modal_ul{
-    overflow: hidden;
-  }
+
   .close_icon {
     padding: 10px;
     margin-top: 10px;
-    margin-right: 115px;
+    margin-right: 50px;
+    font-size: 30px;
    
   }
 
@@ -118,5 +75,41 @@
     transform: translateX(-100%);
     transition: all 0.7s ease-out;
     padding: 40px;
+  }
+}
+
+
+@media (max-width : 400px){
+
+
+  .close_icon {
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 40px;
+    font-size: 30px;
+   
+  }
+
+  .modal_container{
+    height: 100vh;
+    width: 100%;
+    background: #4a0a0a;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.7s ease-out;
+    padding: 40px;
+  }
+}
+
+@media (max-width : 420px){
+
+  .close_icon {
+
+    margin-top: 10px;
+    margin-right: 25px;
+    font-size: 35px;
   }
 }

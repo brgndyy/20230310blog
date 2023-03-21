@@ -7,6 +7,7 @@
     z-index: 2;
     position: fixed;
     top: 0;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .header_position{
@@ -33,6 +34,17 @@
     margin-left: 23px;
     margin-top: 22px;
 }
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+
+    }
+    100% {
+      opacity: 1;
+
+    }
+  }
 
 /* .header_menu_container{
     width: 80px;
