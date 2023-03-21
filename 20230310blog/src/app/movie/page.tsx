@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "components/HomeCard/Card";
+import ContentCard from "components/ContentCard/ContentCard";
 import Header from "components/Header/Header";
 import { dummyMovieData } from "DUMMY_DATA/movie/dummy_movie.data";
 import PostList from "components/Music/PostList";
@@ -7,10 +7,10 @@ import PostList from "components/Music/PostList";
 export default function Page() {
   return (
     <>
-      <Card>
+      <ContentCard>
         <Header />
         <PostList contentList={dummyMovieData} />
-      </Card>
+      </ContentCard>
     </>
   );
 }

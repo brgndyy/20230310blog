@@ -11,6 +11,7 @@ type PostListProps = {
 };
 
 export default function PostList({ contentList }: PostListProps) {
+  const [noMoreData, setNoMoreData] = useState(false);
   const getPostCountByViewport = () => {
     const width = window.innerWidth;
     if (width <= 550 || width <= 300) return 1;
@@ -29,12 +30,17 @@ export default function PostList({ contentList }: PostListProps) {
     const endIndex = startIndex + postCount;
     const moreData = contentList.slice(startIndex, endIndex);
 
+    if (moreData.length === 0) {
+      setNoMoreData(true);
+      return;
+    }
+
     setPosts([...posts, ...moreData]);
   }, [posts, contentList]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (loading) return;
+      if (loading || noMoreData) return;
 
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -56,7 +62,7 @@ export default function PostList({ contentList }: PostListProps) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [posts, loadMorePosts, loading]);
+  }, [posts, loadMorePosts, loading, noMoreData]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -83,7 +89,7 @@ export default function PostList({ contentList }: PostListProps) {
               return <PostItem key={item.id} {...item} />;
             })}
           </ul>
-          {loading && <LoadingSpinner />}
+          {loading && !noMoreData && <LoadingSpinner />}
         </div>
       </div>
     </>

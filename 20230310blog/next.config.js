@@ -17,6 +17,10 @@ const nextConfig = {
       "www.artinsight.co.kr",
       "blog.lgchem.com",
       "th4.tmon.kr",
+      "upload.wikimedia.org",
+      "mblogthumb-phinf.pstatic.net",
+      "t1.daumcdn.net",
+      "www.dentin.kr",
     ],
   },
 };
