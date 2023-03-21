@@ -1,3 +1,5 @@
+"use client";
+
 import classes from "./PostList.module.css";
 import PostItem from "./PostItem";
 import { ContentType } from "types/ContentType";

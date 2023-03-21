@@ -45,7 +45,7 @@
     }
 }
 
-@media (max-width : 450px){
+@media (max-width : 413px){
 
     .post_list_card{
 
@@ -66,27 +66,47 @@
     }
 }
 
+@media (max-width : 550px){
 
-
-@media (max-width : 1050px){
-
-    .post_list_card{
-
-        padding : 20px;
-        display: flex;
-        justify-content: center;
-
-    }
 
     .post_list_ul{
-        padding-left: 0;
-        width: 80%;
-        height : 100%;
-        list-style: none;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-        gap: 20px;
-        justify-content: center;
+
+        grid-template-columns: repeat(1, 1fr);
+ 
     }
 }
+
+@media (max-width : 750px){
+
+
+    .post_list_ul{
+
+        grid-template-columns: repeat(1, 1fr);
+ 
+    }
+}
+
+@media (max-width : 800px){
+
+
+    .post_list_ul{
+
+        grid-template-columns: repeat(1, 1fr);
+ 
+    }
+}
+
+@media (max-width : 1000px){
+
+
+    .post_list_ul{
+
+        grid-template-columns: repeat(2, 1fr);
+ 
+    }
+}
+
+
+
+
+
