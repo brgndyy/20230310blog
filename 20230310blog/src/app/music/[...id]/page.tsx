@@ -1,6 +1,6 @@
 import ContentCard from "components/ContentCard/ContentCard";
 import Header from "components/Header/Header";
-import Detail from "components/Detail/Detail";
+import MusicDetail from "components/Detail/MusicDetail";
 import { dummyMusicData } from "DUMMY_DATA/dummy_music_data";
 import NotFound from "./not-found";
 
@@ -16,7 +16,7 @@ export default function Page({ params }: any) {
     <>
       <ContentCard>
         <Header />
-        <Detail dataProps={selectedData} />
+        <MusicDetail dataProps={selectedData} />
       </ContentCard>
     </>
   );
