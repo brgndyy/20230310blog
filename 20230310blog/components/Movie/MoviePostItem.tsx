@@ -8,12 +8,12 @@ type MoviePostItemProps = {
 };
 
 export default function MoviePostItem({ movieProps }: MoviePostItemProps) {
-  const { imageUrl, title, rate, actors } = movieProps;
+  const { imageUrl, title, rate, actors, category } = movieProps;
 
   return (
     <>
       <div className={classes.post_card}>
-        <Link href={"/:id"} className={classes.post_link}>
+        <Link href={`/${category}/3}`} className={classes.post_link}>
           <li className={classes.post_li}>
             <div className={classes.post_img_card}>
               <Image

@@ -7,12 +7,16 @@ type MusicPostItemProps = {
   musicProps: ContentItem;
 };
 
-export default function MusicPostItem({ musicProps }: MusicPostItemProps) {
-  const { imageUrl, title, rate, artist } = musicProps;
+export default function MusicPostItem(
+  { musicProps }: MusicPostItemProps,
+  { params }: any
+) {
+  console.log(params);
+  const { imageUrl, title, rate, artist, category } = musicProps;
   return (
     <>
       <div className={classes.post_card}>
-        <Link href={"/:id"} className={classes.post_link}>
+        <Link href={`/${category}/${params}`} className={classes.post_link}>
           <li className={classes.post_li}>
             <div className={classes.post_img_card}>
               <Image

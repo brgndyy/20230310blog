@@ -42,7 +42,7 @@ export default function HomeFeed() {
         </div>
         <div className={classes.item_container}>
           <div className={classes.category_item}>
-            <Link href={"/exhibiton"} className={classes.link}>
+            <Link href={"/book"} className={classes.link}>
               <Image
                 className={classes.category_img}
                 src={"/image/book.jpeg"}
