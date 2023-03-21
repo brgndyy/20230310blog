@@ -8,6 +8,8 @@ type PostItemProps = ContentType;
 export default function PostItem(props: PostItemProps) {
   const { id, title, imageUrl, postDate, ...rest } = props;
 
+  console.log(rest);
+
   return (
     <>
       <div className={classes.post_card}>
