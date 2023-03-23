@@ -6,10 +6,20 @@ const session = require("express-session");
 const dotenv = require("dotenv");
 const fs = require("fs");
 const musicRoutes = require("./routes/music-routes");
+const { sequelize } = require("./models");
 
 const app = express();
 
 app.set("port", process.env.PORT || 3002);
+
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log("데이터 베이스 연결 성공");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.use("/api/music", musicRoutes);
 
