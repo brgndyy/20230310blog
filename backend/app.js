@@ -6,7 +6,13 @@ const session = require("express-session");
 const dotenv = require("dotenv");
 const fs = require("fs");
 const musicRoutes = require("./routes/music-routes");
+const movieRoutes = require("./routes/movie-routes");
+const bookRoutes = require("./routes/book-routes");
+const exhibitionRoutes = require("./routes/exhibition-routes");
+const etcRoutes = require("./routes/etc-routes");
+const signUpRoutes = require("./routes/singup-routes");
 const { sequelize } = require("./models");
+const HttpError = require("./error/http-error");
 
 const app = express();
 
@@ -25,7 +31,25 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use("/api/signup", signUpRoutes);
 app.use("/api/music", musicRoutes);
+app.use("/api/movie", movieRoutes);
+app.use("/api/book", bookRoutes);
+app.use("/api/exhibition", exhibitionRoutes);
+app.use("/api/etc", etcRoutes);
+
+// 에러 처리 미들웨어는 맨 밑에 두기
+
+app.use((req, res, next) => {
+  const error = new HttpError("해당 페이지를 찾을 수 없습니다!", 404);
+
+  throw error;
+});
+
+app.use((error, req, res, next) => {
+  res.status(error.code || 500);
+  res.json({ message: error.message || "오류가 발생했습니다." });
+});
 
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기중");

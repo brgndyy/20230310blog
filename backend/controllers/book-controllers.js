@@ -1,5 +1,5 @@
 const getAllBookPosts = (req, res) => {
-  console.log("hi");
+  res.send("book 페이지.");
 };
 
 exports.getAllBookPosts = getAllBookPosts;

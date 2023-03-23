@@ -21,6 +21,9 @@ const nextConfig = {
       "mblogthumb-phinf.pstatic.net",
       "t1.daumcdn.net",
       "www.dentin.kr",
+      "image.yes24.com",
+      "i.pinimg.com",
+      "www.mmca.go.kr",
     ],
   },
 };

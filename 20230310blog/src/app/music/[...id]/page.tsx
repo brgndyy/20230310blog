@@ -1,7 +1,7 @@
 import ContentCard from "components/ContentCard/ContentCard";
 import Header from "components/Header/Header";
 import MusicDetail from "components/Detail/MusicDetail";
-import { dummyMusicData } from "DUMMY_DATA/dummy_music_data";
+import { dummyMusicData } from "DUMMY_DATA/Music/dummy_music_data";
 import NotFound from "./not-found";
 
 export default function Page({ params }: any) {

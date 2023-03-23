@@ -1,5 +1,5 @@
 const getAllEtcPosts = (req, res) => {
-  console.log("hi");
+  res.send("etc 페이지");
 };
 
 exports.getAllEtcPosts = getAllEtcPosts;

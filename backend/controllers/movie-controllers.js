@@ -1,5 +1,5 @@
 const getAllMoviePosts = (req, res) => {
-  console.log("hi");
+  res.send("영화페이지");
 };
 
 exports.getAllMoviePosts = getAllMoviePosts;

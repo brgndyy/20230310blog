@@ -46,7 +46,7 @@ export default function Login() {
               </div>
             </div>
             <div className={classes.button_container}>
-              <button className={classes.login_button}>로그인</button>
+              <button className={classes.login_button}>회원가입</button>
             </div>
           </form>
         </div>
