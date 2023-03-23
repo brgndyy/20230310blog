@@ -21,6 +21,10 @@ sequelize
     console.error(err);
   });
 
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use("/api/music", musicRoutes);
 
 app.listen(app.get("port"), () => {
