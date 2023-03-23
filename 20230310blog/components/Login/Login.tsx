@@ -1,11 +1,17 @@
 "use client";
 
 import classes from "./Login.module.css";
+import { useRef } from "react";
 
 export default function Login() {
+  const idRef = useRef<HTMLInputElement>(null);
+  const pwRef = useRef<HTMLInputElement>(null);
+
   const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("제출 완료!");
+    if (idRef.current && pwRef.current) {
+      console.log(idRef.current.value, pwRef.current.value);
+    }
   };
 
   return (
@@ -19,6 +25,7 @@ export default function Login() {
               </label>
               <div className={classes.login_input_div}>
                 <input
+                  ref={idRef}
                   className={classes.login_input}
                   type={"text"}
                   name={"adminId"}
@@ -31,6 +38,7 @@ export default function Login() {
               </label>
               <div className={classes.login_input_div}>
                 <input
+                  ref={pwRef}
                   className={classes.login_input}
                   type={"password"}
                   name={"adminPw"}
