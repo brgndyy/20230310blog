@@ -21,16 +21,23 @@ export default function MusicDetail({ dataProps }: ItemType) {
             />
           </div>
           <div className={classes.detail_info}>
-            <div className={classes.detail_artist}>
-              <span>아티스트 : {dataProps.artist}</span>
+            <div className={`${classes.detail}`}>
+              <div className={classes.artist}>아티스트 :</div>
+              <div className={classes.detail_artist}>{dataProps.artist}</div>
             </div>
-            <div className={classes.detail_title}>
-              <span>앨범명 : {dataProps.title}</span>
+            <div className={`${classes.detail}`}>
+              <div className={classes.title}>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;앨범명 :
+              </div>
+              <div className={classes.detail_title}>{dataProps.title}</div>
             </div>
-            <div className={classes.detail_released}>
-              <span>발매일 : {dataProps.released}</span>
+            <div className={`${classes.detail}`}>
+              <div className={classes.released}>발매일 :</div>
+              <div className={classes.detail_released}>
+                {dataProps.released}
+              </div>
             </div>
-            <div className={classes.detail_rate}>
+            <div className={`${classes.detail} ${classes.rate}`}>
               <span>평점 : {dataProps.rate}</span>
             </div>
           </div>
