@@ -7,10 +7,22 @@ export default function Login() {
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
-  const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (idRef.current && pwRef.current) {
-      console.log(idRef.current.value, pwRef.current.value);
+      await fetch("http://localhost:3002/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: idRef.current.value,
+          password: pwRef.current.value,
+        }),
+      });
+      console.log("로그인이 완료 되었습니다!");
+      idRef.current.value = "";
+      pwRef.current.value = "";
     }
   };
 
@@ -46,7 +58,7 @@ export default function Login() {
               </div>
             </div>
             <div className={classes.button_container}>
-              <button className={classes.login_button}>회원가입</button>
+              <button className={classes.login_button}>로그인</button>
             </div>
           </form>
         </div>

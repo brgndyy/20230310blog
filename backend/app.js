@@ -10,11 +10,18 @@ const movieRoutes = require("./routes/movie-routes");
 const bookRoutes = require("./routes/book-routes");
 const exhibitionRoutes = require("./routes/exhibition-routes");
 const etcRoutes = require("./routes/etc-routes");
-const signUpRoutes = require("./routes/singup-routes");
+const loginRoutes = require("./routes/login-routes");
 const { sequelize } = require("./models");
 const HttpError = require("./error/http-error");
+const cors = require("cors");
 
 const app = express();
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
 
 app.set("port", process.env.PORT || 3002);
 
@@ -30,8 +37,9 @@ sequelize
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors(corsOptions));
 
-app.use("/api/signup", signUpRoutes);
+app.use("/api/login", loginRoutes);
 app.use("/api/music", musicRoutes);
 app.use("/api/movie", movieRoutes);
 app.use("/api/book", bookRoutes);
