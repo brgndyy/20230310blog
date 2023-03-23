@@ -8,7 +8,7 @@ export default function KeyBoard() {
   const router = useRouter();
 
   useEffect(() => {
-    const handleKeyDown = (e: any) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       setInputString((prevState) => prevState + e.key);
     };
 
