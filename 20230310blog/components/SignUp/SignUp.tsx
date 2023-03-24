@@ -10,7 +10,7 @@ export default function SignUp() {
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (idRef.current && pwRef.current) {
-      await fetch("http://localhost:3002/api/login", {
+      await fetch("http://localhost:3002/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,37 +28,37 @@ export default function SignUp() {
 
   return (
     <>
-      <div className={classes.login_background}>
-        <div className={classes.login_container}>
-          <form className={classes.login_form} onSubmit={formSubmitHandler}>
-            <div className={classes.login_div}>
-              <label className={classes.login_label} htmlFor="adminId">
+      <div className={classes.signup_background}>
+        <div className={classes.signup_container}>
+          <form className={classes.signup_form} onSubmit={formSubmitHandler}>
+            <div className={classes.signup_div}>
+              <label className={classes.signup_label} htmlFor="adminId">
                 아이디
               </label>
-              <div className={classes.login_input_div}>
+              <div className={classes.signup_input_div}>
                 <input
                   ref={idRef}
-                  className={classes.login_input}
+                  className={classes.signup_input}
                   type={"text"}
                   name={"adminId"}
                 />
               </div>
             </div>
-            <div className={classes.login_div}>
-              <label className={classes.login_label} htmlFor="adminPw">
+            <div className={classes.signup_div}>
+              <label className={classes.signup_label} htmlFor="adminPw">
                 비밀번호
               </label>
-              <div className={classes.login_input_div}>
+              <div className={classes.signup_input_div}>
                 <input
                   ref={pwRef}
-                  className={classes.login_input}
+                  className={classes.signup_input}
                   type={"password"}
                   name={"adminPw"}
                 />
               </div>
             </div>
             <div className={classes.button_container}>
-              <button className={classes.login_button}>회원가입</button>
+              <button className={classes.signup_button}>회원가입</button>
             </div>
           </form>
         </div>
