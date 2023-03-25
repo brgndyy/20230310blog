@@ -11,6 +11,10 @@ interface CredentialResponse {
   select_by: string;
 }
 
+interface TokenType {
+  email: string;
+}
+
 export default function SignUp() {
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
@@ -19,7 +23,11 @@ export default function SignUp() {
     console.log(credentialResponse);
 
     const idToken = credentialResponse.credential;
-    const decodedToken = jwtDecode(idToken);
+    const decodedToken: TokenType = jwtDecode(idToken);
+
+    const userEmail = decodedToken.email;
+
+    console.log(userEmail);
 
     console.log("User profile information:", decodedToken);
   };
