@@ -4,10 +4,20 @@ import classes from "./SignUp.module.css";
 import { useRef } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useGoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 
 export default function SignUp() {
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
+
+  const handleSuccess = (credentialResponse: any) => {
+    console.log(credentialResponse);
+
+    const idToken = credentialResponse.credential;
+    const decodedToken = jwtDecode(idToken);
+
+    console.log("User profile information:", decodedToken);
+  };
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,7 +38,7 @@ export default function SignUp() {
     }
   };
 
-  const signIn = useGoogleLogin({
+  const login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
 
@@ -67,11 +77,12 @@ export default function SignUp() {
               <button className={classes.signup_button}>회원가입</button>
             </div>
             <GoogleLogin
-              onSuccess={() => signIn()}
+              onSuccess={handleSuccess}
               onError={() => {
                 console.log("Login Failed");
               }}
             />
+            <button onClick={() => login()}>구글로 로그인 버튼</button>
           </form>
         </div>
       </div>
