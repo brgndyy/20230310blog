@@ -1,4 +1,4 @@
-import GoogleOAuth from "components/SignUp/GoogleOAuth";
+import GoogleOAuth from "components/Auth/GoogleOAuth";
 
 export default function Page() {
   return (
