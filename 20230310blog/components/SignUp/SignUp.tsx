@@ -79,7 +79,7 @@ export default function SignUp() {
             </div>
             <GoogleLogin
               onSuccess={(credentialResponse: any) => {
-                console.log(jwtDecode(credentialResponse.credential));
+                handleSuccess(credentialResponse);
               }}
               onError={() => {
                 console.log("Login Failed");
