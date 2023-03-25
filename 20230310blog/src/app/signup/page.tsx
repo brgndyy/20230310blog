@@ -1,9 +1,9 @@
-import SignUp from "components/SignUp/SignUp";
+import GoogleOAuth from "components/SignUp/GoogleOAuth";
 
 export default function Page() {
   return (
     <>
-      <SignUp />
+      <GoogleOAuth />
     </>
   );
 }

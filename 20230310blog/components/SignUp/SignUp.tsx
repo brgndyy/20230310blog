@@ -2,11 +2,10 @@
 
 import classes from "./SignUp.module.css";
 import { useRef } from "react";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 
 export default function SignUp() {
-  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY;
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
@@ -29,59 +28,53 @@ export default function SignUp() {
     }
   };
 
+  const signIn = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
+
   return (
     <>
-      {clientId && (
-        <GoogleOAuthProvider clientId={clientId}>
-          <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              console.log(credentialResponse);
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
-          ;
-          <div className={classes.signup_background}>
-            <div className={classes.signup_container}>
-              <form
-                className={classes.signup_form}
-                onSubmit={formSubmitHandler}
-              >
-                <div className={classes.signup_div}>
-                  <label className={classes.signup_label} htmlFor="adminId">
-                    아이디
-                  </label>
-                  <div className={classes.signup_input_div}>
-                    <input
-                      ref={idRef}
-                      className={classes.signup_input}
-                      type={"text"}
-                      name={"adminId"}
-                    />
-                  </div>
-                </div>
-                <div className={classes.signup_div}>
-                  <label className={classes.signup_label} htmlFor="adminPw">
-                    비밀번호
-                  </label>
-                  <div className={classes.signup_input_div}>
-                    <input
-                      ref={pwRef}
-                      className={classes.signup_input}
-                      type={"password"}
-                      name={"adminPw"}
-                    />
-                  </div>
-                </div>
-                <div className={classes.button_container}>
-                  <button className={classes.signup_button}>회원가입</button>
-                </div>
-              </form>
+      <div className={classes.signup_background}>
+        <div className={classes.signup_container}>
+          <form className={classes.signup_form} onSubmit={formSubmitHandler}>
+            <div className={classes.signup_div}>
+              <label className={classes.signup_label} htmlFor="adminId">
+                아이디
+              </label>
+              <div className={classes.signup_input_div}>
+                <input
+                  ref={idRef}
+                  className={classes.signup_input}
+                  type={"text"}
+                  name={"adminId"}
+                />
+              </div>
             </div>
-          </div>
-        </GoogleOAuthProvider>
-      )}
+            <div className={classes.signup_div}>
+              <label className={classes.signup_label} htmlFor="adminPw">
+                비밀번호
+              </label>
+              <div className={classes.signup_input_div}>
+                <input
+                  ref={pwRef}
+                  className={classes.signup_input}
+                  type={"password"}
+                  name={"adminPw"}
+                />
+              </div>
+            </div>
+            <div className={classes.button_container}>
+              <button className={classes.signup_button}>회원가입</button>
+            </div>
+            <GoogleLogin
+              onSuccess={() => signIn()}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
+          </form>
+        </div>
+      </div>
     </>
   );
 }
