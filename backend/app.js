@@ -28,7 +28,7 @@ const corsOptions = {
 app.set("port", process.env.PORT || 3002);
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("데이터 베이스 연결 성공");
   })
