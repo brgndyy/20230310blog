@@ -30,12 +30,13 @@ export default function Login() {
           const errorMsg = await response.json();
           setError(errorMsg.message);
           console.log(errorMsg);
+        } else {
+          const data = await response.json();
+          console.log(data);
+          console.log(document.cookie);
+          emailRef.current.value = "";
+          pwRef.current.value = "";
         }
-        const data = await response.json();
-        console.log(data);
-        router.push("/");
-        emailRef.current.value = "";
-        pwRef.current.value = "";
       } catch (err) {
         console.error(err);
       }
