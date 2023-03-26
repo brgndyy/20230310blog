@@ -38,17 +38,19 @@ export default function SignUp() {
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (idRef.current && pwRef.current) {
-      await fetch("http://localhost:3002/api/user/signup", {
+      const response = await fetch("http://localhost:3002/api/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: idRef.current.value,
+          email: idRef.current.value,
           password: pwRef.current.value,
         }),
       });
-      console.log("회원가입이 완료 되었습니다!");
+      const data = await response.json();
+
+      console.log(data);
       idRef.current.value = "";
       pwRef.current.value = "";
     }

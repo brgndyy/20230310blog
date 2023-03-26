@@ -1,28 +1,34 @@
 "use client";
 
 import classes from "./Login.module.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import ErrorModal from "components/ErrorModal/ErrorModal";
 
 export default function Login() {
-  const idRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<string | null>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (idRef.current && pwRef.current) {
+    if (emailRef.current && pwRef.current) {
       try {
-        await fetch("http://localhost:3002/api/user/login", {
+        const response = await fetch("http://localhost:3002/api/user/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userId: idRef.current.value,
+            email: emailRef.current.value,
             password: pwRef.current.value,
           }),
         });
-        console.log("로그인이 완료 되었습니다!");
-        idRef.current.value = "";
+        if (!response.ok) {
+          const errorMsg = await response.json();
+          setError(errorMsg.message);
+          console.log(errorMsg);
+        }
+        emailRef.current.value = "";
         pwRef.current.value = "";
       } catch (err) {
         console.error(err);
@@ -32,24 +38,25 @@ export default function Login() {
 
   return (
     <>
+      {error && <ErrorModal message={error} setError={setError} />}
       <div className={classes.login_background}>
         <div className={classes.login_container}>
           <form className={classes.login_form} onSubmit={formSubmitHandler}>
             <div className={classes.login_div}>
-              <label className={classes.login_label} htmlFor="adminId">
-                아이디
+              <label className={classes.login_label} htmlFor="email">
+                이메일
               </label>
               <div className={classes.login_input_div}>
                 <input
-                  ref={idRef}
+                  ref={emailRef}
                   className={classes.login_input}
                   type={"text"}
-                  name={"adminId"}
+                  name={"email"}
                 />
               </div>
             </div>
             <div className={classes.login_div}>
-              <label className={classes.login_label} htmlFor="adminPw">
+              <label className={classes.login_label} htmlFor="password">
                 비밀번호
               </label>
               <div className={classes.login_input_div}>
@@ -57,7 +64,7 @@ export default function Login() {
                   ref={pwRef}
                   className={classes.login_input}
                   type={"password"}
-                  name={"adminPw"}
+                  name={"password"}
                 />
               </div>
             </div>
