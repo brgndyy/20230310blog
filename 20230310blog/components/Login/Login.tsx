@@ -3,11 +3,13 @@
 import classes from "./Login.module.css";
 import { useRef, useState } from "react";
 import ErrorModal from "components/ErrorModal/ErrorModal";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ export default function Login() {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({
             email: emailRef.current.value,
             password: pwRef.current.value,
@@ -28,6 +31,9 @@ export default function Login() {
           setError(errorMsg.message);
           console.log(errorMsg);
         }
+        const data = await response.json();
+        console.log(data);
+        router.push("/");
         emailRef.current.value = "";
         pwRef.current.value = "";
       } catch (err) {

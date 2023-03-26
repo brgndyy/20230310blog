@@ -52,6 +52,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 app.use(helmet());
+
 app.use(passport.initialize());
 app.use(passport.session());
 

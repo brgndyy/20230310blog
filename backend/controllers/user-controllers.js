@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const HttpError = require("../error/http-error");
+const passport = require("passport");
 
 const signUp = async (req, res, next) => {
   const { email, password } = req.body;
@@ -26,42 +27,29 @@ const signUp = async (req, res, next) => {
   res.json({ newUser: newUser });
 };
 
-const login = async (req, res, next) => {
-  const { email, password } = req.body;
+const login = (req, res, next) => {
+  passport.authenticate("local", (authError, user, info) => {
+    if (authError) {
+      const error = new HttpError(
+        "로그인 중 문제가 발생했습니다. 다시 로그인 해주세요",
+        500
+      );
+      return next(error);
+    }
+    if (!user) {
+      const error = new HttpError("로그인에 실패했습니다!", 500);
+      return next(error);
+    }
 
-  let user;
-  let isValidPassword = false;
-
-  try {
-    user = await User.findOne({
-      where: {
-        email: email,
-      },
+    return req.login(user, (loginError) => {
+      if (loginError) {
+        const error = new HttpError("로그인에 실패하셨습니다!", 500);
+        return next(error);
+      }
+      res.cookie("user", user, { httpOnly: true });
+      res.json({ user: user, cookie: res.cookie });
     });
-  } catch (err) {
-    const error = new HttpError(
-      "로그인에 실패하셨습니다. 나중에 다시 시도해주세요!",
-      500
-    );
-    return next(error);
-  }
-
-  if (!user) {
-    const error = new HttpError(
-      "로그인에 실패하셨어요. 아이디 또는 비밀번호를 다시 확인해주세요!",
-      500
-    );
-    return next(error);
-  }
-
-  try {
-    isValidPassword = await bcrypt.compare(password, existingUser.password);
-  } catch (err) {
-    const error = new HttpError("비밀번호를 다시 입력해주세요", 500);
-    return next(error);
-  }
-
-  res.json({ message: "로그인에 성공하셨습니다." });
+  })(req, res, next);
 };
 
 const getWrite = (req, res, next) => {
