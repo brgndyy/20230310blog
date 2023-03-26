@@ -7,14 +7,17 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const postRoutes = require("./routes/post-routes");
 const userRoutes = require("./routes/user-routes");
-
 const { sequelize } = require("./models");
 const HttpError = require("./error/http-error");
 const cors = require("cors");
 const helmet = require("helmet");
 const passport = require("passport");
+const passportConfig = require("./passport");
+
+dotenv.config();
 
 const app = express();
+passportConfig();
 
 const corsOptions = {
   origin: "http://localhost:3000",

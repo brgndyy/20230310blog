@@ -38,7 +38,7 @@ export default function SignUp() {
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (idRef.current && pwRef.current) {
-      await fetch("http://localhost:3002/api/signup", {
+      await fetch("http://localhost:3002/api/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,20 +60,20 @@ export default function SignUp() {
         <div className={classes.signup_container}>
           <form className={classes.signup_form} onSubmit={formSubmitHandler}>
             <div className={classes.signup_div}>
-              <label className={classes.signup_label} htmlFor="adminId">
-                아이디
+              <label className={classes.signup_label} htmlFor="email">
+                이메일
               </label>
               <div className={classes.signup_input_div}>
                 <input
                   ref={idRef}
                   className={classes.signup_input}
                   type={"text"}
-                  name={"adminId"}
+                  name={"email"}
                 />
               </div>
             </div>
             <div className={classes.signup_div}>
-              <label className={classes.signup_label} htmlFor="adminPw">
+              <label className={classes.signup_label} htmlFor="password">
                 비밀번호
               </label>
               <div className={classes.signup_input_div}>
@@ -81,7 +81,7 @@ export default function SignUp() {
                   ref={pwRef}
                   className={classes.signup_input}
                   type={"password"}
-                  name={"adminPw"}
+                  name={"password"}
                 />
               </div>
             </div>

@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const HttpError = require("../error/http-error");
 
 const login = async (req, res, next) => {
-  const { userId, password } = req.body;
+  const { email, password } = req.body;
 
   let existingUser;
   let isValidPassword = false;
@@ -11,7 +11,7 @@ const login = async (req, res, next) => {
   try {
     existingUser = await User.findOne({
       where: {
-        userId: userId,
+        email: email,
       },
     });
   } catch (err) {

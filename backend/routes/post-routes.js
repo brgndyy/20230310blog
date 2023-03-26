@@ -1,15 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const musicControllers = require("../controllers/music-controllers");
-const movieControllers = require("../controllers/movie-controllers");
-const exhibitionControllers = require("../controllers/exhibition-controllers");
-const etcControllers = require("../controllers/etc-controllers");
-const bookControllers = require("../controllers/book-controllers");
+const postControllers = require("../controllers/post-controllers");
 
-router.get("/music", musicControllers.getAllMusicPosts);
-router.get("/movie", movieControllers.getAllMoviePosts);
-router.get("/exhibition", exhibitionControllers.getAllExhibitonPosts);
-router.get("/etc", etcControllers.getAllEtcPosts);
-router.get("/book", bookControllers.getAllBookPosts);
+router.get("/music", postControllers.getAllMusicPosts);
+router.get("/movie", postControllers.getAllMoviePosts);
+router.get("/exhibition", postControllers.getAllExhibitonPosts);
+router.get("/etc", postControllers.getAllEtcPosts);
+router.get("/book", postControllers.getAllBookPosts);
 
 module.exports = router;
