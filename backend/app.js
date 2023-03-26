@@ -5,13 +5,8 @@ const path = require("path");
 const session = require("express-session");
 const dotenv = require("dotenv");
 const fs = require("fs");
-const musicRoutes = require("./routes/music-routes");
-const movieRoutes = require("./routes/movie-routes");
-const bookRoutes = require("./routes/book-routes");
-const exhibitionRoutes = require("./routes/exhibition-routes");
-const etcRoutes = require("./routes/etc-routes");
-const loginRoutes = require("./routes/login-routes");
-const singUpRoutes = require("./routes/signUp-routes");
+const postRoutes = require("./routes/post-routes");
+const userRoutes = require("./routes/user-routes");
 
 const { sequelize } = require("./models");
 const HttpError = require("./error/http-error");
@@ -58,13 +53,8 @@ app.use(helmet());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/login", loginRoutes);
-app.use("/api/music", musicRoutes);
-app.use("/api/movie", movieRoutes);
-app.use("/api/book", bookRoutes);
-app.use("/api/exhibition", exhibitionRoutes);
-app.use("/api/etc", etcRoutes);
-app.use("/api/signup", singUpRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/post", postRoutes);
 
 // 에러 처리 미들웨어는 맨 밑에 두기
 
