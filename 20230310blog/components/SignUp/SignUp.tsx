@@ -19,17 +19,20 @@ export default function SignUp() {
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
-  const handleSuccess = (credentialResponse: CredentialResponse) => {
+  const handleSuccess = async (credentialResponse: CredentialResponse) => {
     console.log(credentialResponse);
 
     const idToken = credentialResponse.credential;
-    const decodedToken: TokenType = jwtDecode(idToken);
 
-    const userEmail = decodedToken.email;
-
-    console.log(userEmail);
-
-    console.log("User profile information:", decodedToken);
+    await fetch("http://localhost:3002/auth/google/callback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idToken: idToken,
+      }),
+    });
   };
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {

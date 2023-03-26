@@ -12,10 +12,12 @@ const exhibitionRoutes = require("./routes/exhibition-routes");
 const etcRoutes = require("./routes/etc-routes");
 const loginRoutes = require("./routes/login-routes");
 const singUpRoutes = require("./routes/signUp-routes");
+
 const { sequelize } = require("./models");
 const HttpError = require("./error/http-error");
 const cors = require("cors");
 const helmet = require("helmet");
+const passport = require("passport");
 
 const app = express();
 
@@ -26,6 +28,18 @@ const corsOptions = {
 };
 
 app.set("port", process.env.PORT || 3002);
+
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.COOKIE_SECRET,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+  })
+);
 
 sequelize
   .sync({ force: true })
@@ -41,6 +55,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 app.use(helmet());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/api/login", loginRoutes);
 app.use("/api/music", musicRoutes);
@@ -48,7 +64,7 @@ app.use("/api/movie", movieRoutes);
 app.use("/api/book", bookRoutes);
 app.use("/api/exhibition", exhibitionRoutes);
 app.use("/api/etc", etcRoutes);
-app.use("api/signup", singUpRoutes);
+app.use("/api/signup", singUpRoutes);
 
 // 에러 처리 미들웨어는 맨 밑에 두기
 
