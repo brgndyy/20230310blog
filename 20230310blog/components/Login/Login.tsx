@@ -33,7 +33,7 @@ export default function Login() {
         } else {
           const data = await response.json();
           console.log(data);
-          console.log(document.cookie);
+
           emailRef.current.value = "";
           pwRef.current.value = "";
         }
