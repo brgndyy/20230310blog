@@ -14,16 +14,15 @@ const helmet = require("helmet");
 const passport = require("passport");
 const passportConfig = require("./passport");
 
-dotenv.config();
-
-const app = express();
-passportConfig();
-
 const corsOptions = {
   origin: "http://localhost:3000",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
+dotenv.config();
+
+const app = express();
+passportConfig();
 
 app.set("port", process.env.PORT || 3002);
 
