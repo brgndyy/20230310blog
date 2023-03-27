@@ -1,13 +1,22 @@
-export default async function Write() {
-  const response = await fetch("http://localhost:3002/api/user/write");
+"use client";
 
-  if (!response.ok) {
-    const data = await response.json();
+import { useEffect } from "react";
 
-    console.log(data.message);
-  } else {
-    console.log(response.status);
-  }
+export default function Write() {
+  useEffect(() => {
+    const getWrite = async () => {
+      const response = await fetch("http://localhost:3002/api/user/write");
 
+      if (!response.ok) {
+        const data = await response.json();
+        console.log("응답이 제대로 잘 안됐을때 : ", data);
+      } else {
+        const data = await response.json();
+        console.log("응답이 제대로 됐을때 : ", data);
+      }
+    };
+
+    getWrite();
+  }, []);
   return <div>Write</div>;
 }

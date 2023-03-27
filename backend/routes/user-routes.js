@@ -7,6 +7,8 @@ const { isLoggedIn, isNotLoggedIn } = require("../middleware/checkLoggedIn");
 router.post("/signup", isNotLoggedIn, userControllers.signUp);
 router.post("/login", isNotLoggedIn, userControllers.login);
 
-router.get("/write", isLoggedIn, userControllers.getWrite);
+router.get("/write", isLoggedIn, (req, res) => {
+  res.json({ message: "writePage 입니다." });
+});
 
 module.exports = router;

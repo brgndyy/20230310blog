@@ -1,6 +1,7 @@
 const HttpError = require("../error/http-error");
 
 const isLoggedIn = (req, res, next) => {
+  console.log(req.isAuthenticated());
   // 로그인 된 사람들만 접근할수 있도록
   if (req.isAuthenticated()) {
     next();
