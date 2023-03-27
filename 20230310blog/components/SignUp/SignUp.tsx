@@ -47,8 +47,10 @@ export default function SignUp() {
           email: idRef.current.value,
           password: pwRef.current.value,
         }),
+        credentials: "include",
       });
       const data = await response.json();
+      console.log(response.headers.get("set-cookie"));
 
       console.log(data);
       idRef.current.value = "";

@@ -26,7 +26,7 @@ export default function Header() {
               />
             </Link>
           </div>
-          <button>버튼</button>
+          {isLoggedIn && <button>로그인 완료 상태</button>}
           <HeaderMenu />
         </div>
       </header>
