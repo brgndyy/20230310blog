@@ -17,13 +17,13 @@ export default function RootLayout({
       <head />
 
       <body>
-        <AuthProvider>
-          <CookieProvider>
+        <CookieProvider>
+          <AuthProvider>
             <div id="modal_backdrop"></div>
             <div id="modal"></div>
             {children}
-          </CookieProvider>
-        </AuthProvider>
+          </AuthProvider>
+        </CookieProvider>
       </body>
     </html>
   );

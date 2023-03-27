@@ -6,18 +6,14 @@ import { useContext, useEffect } from "react";
 import Link from "next/link";
 import classes from "./Header.module.css";
 import HeaderMenu from "components/HeaderMenu/HeaderMenu";
-import { useCookies } from "react-cookie";
+import { getCookies } from "cookies-next";
 
 export default function Header() {
   const auth = useContext(AuthContext);
-  const [cookies, setCookies] = useCookies(["userCookie"]);
+  const cookie = getCookies();
+
+  console.log(cookie);
   const { isLoggedIn } = auth;
-
-  useEffect(() => {
-    console.log(cookies);
-  }, []);
-
-  console.log(document.cookie);
 
   return (
     <>
