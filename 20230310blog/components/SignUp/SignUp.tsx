@@ -20,7 +20,7 @@ interface TokenType {
 
 export default function SignUp() {
   const auth = useContext(AuthContext);
-  console.log(document.cookie);
+
   const router = useRouter();
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);

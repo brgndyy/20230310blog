@@ -20,20 +20,24 @@ const signUp = async (req, res, next) => {
       email,
       password: hashPassword,
     });
+  } catch (err) {
+    const error = new HttpError("회원가입에 실패하셨어요!");
+  }
 
-    await req.login(newUser, { session: true }, (err) => {
+  try {
+    req.login(newUser, { session: true }, (err) => {
       if (err) {
         const error = new HttpError(
           "회원가입은 됐는데 로그인에 실패하셨습니다."
         );
         return next(error);
       }
+      return res.status(201).json({ newUser: newUser });
     });
   } catch (err) {
-    const error = new HttpError("회원가입에 실패하셨어요!");
+    const error = new HttpError("알수 없는 에러", 500);
+    return next(error);
   }
-
-  return res.json({ newUser: newUser });
 };
 
 const login = (req, res, next) => {
