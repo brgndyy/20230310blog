@@ -1,5 +1,6 @@
 import "./globals.css";
 import AuthProvider from "components/Context/AuthProvider";
+import CookieProvider from "components/CookieProvider/CookieProvider";
 
 export default function RootLayout({
   children,
@@ -17,9 +18,11 @@ export default function RootLayout({
 
       <body>
         <AuthProvider>
-          <div id="modal_backdrop"></div>
-          <div id="modal"></div>
-          {children}
+          <CookieProvider>
+            <div id="modal_backdrop"></div>
+            <div id="modal"></div>
+            {children}
+          </CookieProvider>
         </AuthProvider>
       </body>
     </html>

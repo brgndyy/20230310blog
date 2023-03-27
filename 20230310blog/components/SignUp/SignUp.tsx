@@ -4,6 +4,9 @@ import classes from "./SignUp.module.css";
 import { useRef } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { AuthContext } from "shared/context/auth-context";
 
 interface CredentialResponse {
   clientId: string;
@@ -16,29 +19,32 @@ interface TokenType {
 }
 
 export default function SignUp() {
+  const auth = useContext(AuthContext);
+  console.log(document.cookie);
+  const router = useRouter();
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
-  const handleSuccess = async (credentialResponse: CredentialResponse) => {
-    console.log(credentialResponse);
+  // const handleSuccess = async (credentialResponse: CredentialResponse) => {
+  //   console.log(credentialResponse);
 
-    const idToken = credentialResponse.credential;
+  //   const idToken = credentialResponse.credential;
 
-    await fetch("http://localhost:3002/auth/google/callback", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        idToken: idToken,
-      }),
-    });
-  };
+  //   await fetch("http://localhost:3002/auth/google/callback", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       idToken: idToken,
+  //     }),
+  //   });
+  // };
 
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (idRef.current && pwRef.current) {
-      const response = await fetch("http://localhost:3002/api/user/signup", {
+      await fetch("http://localhost:3002/api/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,12 +55,11 @@ export default function SignUp() {
         }),
         credentials: "include",
       });
-      const data = await response.json();
-      console.log(response.headers.get("set-cookie"));
 
-      console.log(data);
       idRef.current.value = "";
       pwRef.current.value = "";
+
+      router.push("/");
     }
   };
 
@@ -92,14 +97,14 @@ export default function SignUp() {
             <div className={classes.button_container}>
               <button className={classes.signup_button}>회원가입</button>
             </div>
-            <GoogleLogin
+            {/* <GoogleLogin
               onSuccess={(credentialResponse: any) => {
                 handleSuccess(credentialResponse);
               }}
               onError={() => {
                 console.log("Login Failed");
               }}
-            />
+            /> */}
           </form>
         </div>
       </div>
