@@ -52,7 +52,7 @@ app.use(
       secure: false,
       signed: true,
     },
-    name: "session-cookie",
+    name: "userCookie",
   })
 );
 

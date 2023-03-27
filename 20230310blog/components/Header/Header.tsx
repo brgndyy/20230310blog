@@ -1,17 +1,23 @@
 "use client";
 
 import { AuthContext } from "shared/context/auth-context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import Link from "next/link";
 import classes from "./Header.module.css";
 import HeaderMenu from "components/HeaderMenu/HeaderMenu";
+import { useCookies } from "react-cookie";
 
 export default function Header() {
   const auth = useContext(AuthContext);
+  const [cookies, setCookies] = useCookies(["userCookie"]);
   const { isLoggedIn } = auth;
 
-  console.log(isLoggedIn);
+  useEffect(() => {
+    console.log(cookies);
+  }, [cookies]);
+
+  console.log(document.cookie);
 
   return (
     <>
