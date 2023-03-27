@@ -1,4 +1,5 @@
 import "./globals.css";
+import AuthProvider from "components/Context/AuthProvider";
 
 export default function RootLayout({
   children,
@@ -15,9 +16,11 @@ export default function RootLayout({
       <head />
 
       <body>
-        <div id="modal_backdrop"></div>
-        <div id="modal"></div>
-        {children}
+        <AuthProvider>
+          <div id="modal_backdrop"></div>
+          <div id="modal"></div>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

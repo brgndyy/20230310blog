@@ -1,8 +1,18 @@
+"use client";
+
+import { AuthContext } from "shared/context/auth-context";
+import { useContext } from "react";
+
 import Link from "next/link";
 import classes from "./Header.module.css";
 import HeaderMenu from "components/HeaderMenu/HeaderMenu";
 
 export default function Header() {
+  const auth = useContext(AuthContext);
+  const { isLoggedIn } = auth;
+
+  console.log(isLoggedIn);
+
   return (
     <>
       <header className={classes.header_container}>
@@ -16,6 +26,7 @@ export default function Header() {
               />
             </Link>
           </div>
+          <button>버튼</button>
           <HeaderMenu />
         </div>
       </header>
