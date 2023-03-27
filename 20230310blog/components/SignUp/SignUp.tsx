@@ -58,9 +58,7 @@ export default function SignUp() {
 
       const data = await res.json();
 
-      console.log(res.headers);
-
-      console.log(data);
+      //router.push('/'); 쿠키를 받은 상태에서 메인페이지로 이동
 
       idRef.current.value = "";
       pwRef.current.value = "";
