@@ -58,6 +58,8 @@ export default function SignUp() {
 
       const data = await res.json();
 
+      console.log(res.headers);
+
       console.log(data);
 
       idRef.current.value = "";
