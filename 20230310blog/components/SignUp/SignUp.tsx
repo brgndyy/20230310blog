@@ -44,7 +44,7 @@ export default function SignUp() {
   const formSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (idRef.current && pwRef.current) {
-      await fetch("http://localhost:3002/api/user/signup", {
+      const res = await fetch("http://localhost:3002/api/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,10 +56,12 @@ export default function SignUp() {
         credentials: "include",
       });
 
+      const data = await res.json();
+
+      console.log(data);
+
       idRef.current.value = "";
       pwRef.current.value = "";
-
-      router.push("/");
     }
   };
 

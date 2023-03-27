@@ -15,7 +15,7 @@ export default function Header() {
 
   useEffect(() => {
     console.log(cookies);
-  }, [cookies]);
+  }, []);
 
   console.log(document.cookie);
 

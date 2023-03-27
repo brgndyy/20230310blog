@@ -35,7 +35,6 @@ sequelize
     console.error(err);
   });
 
-app.use(passport.initialize());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -52,10 +51,11 @@ app.use(
       secure: false,
       signed: true,
     },
-    name: "userCookie",
+    name: "user_Cookie",
   })
 );
 
+app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/api/user", userRoutes);
