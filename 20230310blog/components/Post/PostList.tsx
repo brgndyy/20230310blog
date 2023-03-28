@@ -13,10 +13,14 @@ type PostListProps = {
 export default function PostList({ contentList }: PostListProps) {
   const [noMoreData, setNoMoreData] = useState(false);
   const getPostCountByViewport = () => {
-    const width = window.innerWidth;
-    if (width <= 550 || width <= 300) return 1;
-    if (width <= 1050) return 2;
-    return 3;
+    if (typeof window !== "undefined") {
+      const width = window.innerWidth;
+      if (width <= 550 || width <= 300) return 1;
+      if (width <= 1050) return 2;
+      return 3;
+    }
+
+    return 0;
   };
   const initialPostCount = getPostCountByViewport();
   const [posts, setPosts] = useState(
@@ -42,18 +46,20 @@ export default function PostList({ contentList }: PostListProps) {
     const handleScroll = () => {
       if (loading || noMoreData) return;
 
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      const clientHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-      const scrollHeight = document.documentElement.scrollHeight;
+      if (typeof window !== "undefined") {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const clientHeight =
+          window.innerHeight || document.documentElement.clientHeight;
+        const scrollHeight = document.documentElement.scrollHeight;
 
-      if (scrollTop + clientHeight >= scrollHeight - 1) {
-        setIsLoading(true);
-        setTimeout(() => {
-          loadMorePosts();
-          setIsLoading(false);
-        }, 500);
+        if (scrollTop + clientHeight >= scrollHeight - 1) {
+          setIsLoading(true);
+          setTimeout(() => {
+            loadMorePosts();
+            setIsLoading(false);
+          }, 500);
+        }
       }
     };
 
